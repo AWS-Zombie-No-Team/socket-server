@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+<script>
+  const socket = io.connect(
+    'http://localhost:9999',
+    { query: "id=joe&token=joe/9c17d105-ddf0-4832-ac3a-a215be395b9d"}
+  );
+
+  socket.on('connection', (res) => {
+    console.log(res);
+  })
+
+  socket.on('new-chat', function(data) {
+
+  });
+</script>
+
+</body>
+</html>
+
