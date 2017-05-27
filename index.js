@@ -68,6 +68,7 @@ io.sockets.on('connection', (socket) => {
             receiver: data.to,
             sender: user.id,
             source_location: data.location,
+            timestamp: (new Date(data.date)) * 1,
           })
         }, (err, res) => {
           console.log(err, res);
