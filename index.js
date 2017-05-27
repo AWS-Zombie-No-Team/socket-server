@@ -1,5 +1,6 @@
 const app = require('express')();
-const aws = require('aws-sdk');
+const AWS = require('aws-sdk');
+AWS.region = 'eu-west-1';
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const R = require('axios');
@@ -15,6 +16,7 @@ const connections = {};
 server.listen(config.socketPort);
 
 const init = () => {
+  const sns = new AWS.SNS();
   var params = {
     Protocol: 'http', /* required */
     TopicArn: 'arn:aws:sns:eu-west-1:505939746198:messages',
