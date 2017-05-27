@@ -1,16 +1,32 @@
 const app = require('express')();
+const aws = require('aws-sdk');
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const R = require('axios');
 const bodyParser = require('body-parser')
+
+const config = require('./config');
 
 app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const connections = {};
 
-server.listen(9999);
+server.listen(config.socketPort);
 
+const init = () => {
+  var params = {
+    Protocol: 'http', /* required */
+    TopicArn: 'arn:aws:sns:eu-west-1:505939746198:messages',
+    Endpoint: `http://${config.host}:${config.port}`
+  };
+  sns.subscribe(params, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else     console.log(data);           // successful response
+  });
+}
+
+init();
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
@@ -19,7 +35,7 @@ app.get('/', function (req, res) {
 io.sockets.on('connection', (socket) => {
   const query = socket.request._query;
   return R({
-    url: 'https://mpnzwe6g7c.execute-api.eu-west-1.amazonaws.com/dev/me',
+    url: `${config.api}/me`,
     method: 'get',
     headers: { AuthToken: query.token }
   }).then(res => {
@@ -41,8 +57,9 @@ io.sockets.on('connection', (socket) => {
   });
 });
 
+
 app.post('/message-notification', function (req, res) {
-  console.log(req.body, req.params);
+
   res.send(true);
 });
 

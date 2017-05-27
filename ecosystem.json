@@ -1,0 +1,9 @@
+{
+  "apps" : [{
+    "name"        : "websocket",
+    "script"      : "index.js",
+    "env": {
+      "ENV": "production"
+    }
+  }]
+}
