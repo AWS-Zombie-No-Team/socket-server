@@ -1,6 +1,6 @@
 const app = require('express')();
 const AWS = require('aws-sdk');
-AWS.region = 'eu-west-1';
+AWS.config.region = 'eu-west-1';
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const R = require('axios');
