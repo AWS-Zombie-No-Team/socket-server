@@ -1,4 +1,4 @@
-const isPord = process.env.END === 'production' ? true : false;
+const isPord = process.env.ENV === 'production' ? true : false;
 console.log('PROD: ', isPord);
 const d = (dev, prod) => {
   if (isPord) {
