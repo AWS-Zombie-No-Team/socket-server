@@ -54,9 +54,6 @@ io.sockets.on('connection', (socket) => {
       console.log('User', user.id, 'disconnected');
     });
 
-
-    // {\"compoundkey\":\"Hloya-Jack\",\"msg\":\"Hi you saw zombies\",\"msg_status\":\" received\",\"receiver\":\"Hloya\",\"sender\":\"Jack\",\"source_location\":{\"lat\":50.453844,\"lon\":30.428284},
-
     socket.on('send-message', (data) => {
       if (user.contacts.indexOf(data.to) !== -1) {
         sns.publish({
@@ -68,7 +65,7 @@ io.sockets.on('connection', (socket) => {
             receiver: data.to,
             sender: user.id,
             source_location: data.location,
-            timestamp: (new Date(data.date)) * 1,
+            timestamp: data.date,
           })
         }, (err, res) => {
           console.log(err, res);
