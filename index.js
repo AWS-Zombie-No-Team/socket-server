@@ -80,6 +80,7 @@ io.sockets.on('connection', (socket) => {
 
 app.post('/message-notification', function (req, res) {
   const message = JSON.parse(JSON.parse(req.body).Message);
+  console.log(message);
   const { sender, receiver } = message;
 
   if (connections[receiver]) {
