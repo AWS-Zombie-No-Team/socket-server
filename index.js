@@ -8,19 +8,24 @@ const bodyParser = require('body-parser')
 
 const config = require('./config');
 
-app.use( bodyParser.json() );
-app.use(bodyParser.urlencoded({ extended: true }));
 
 const connections = {};
 
 server.listen(config.socketPort);
+
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 const init = () => {
   const sns = new AWS.SNS();
   var params = {
     Protocol: 'http', /* required */
     TopicArn: 'arn:aws:sns:eu-west-1:505939746198:messages',
-    Endpoint: `http://${config.host}:${config.port}`
+    Endpoint: `http://${config.host}:${config.port}/message-notification`
   };
   sns.subscribe(params, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
@@ -61,7 +66,10 @@ io.sockets.on('connection', (socket) => {
 
 
 app.post('/message-notification', function (req, res) {
-
+  console.log(req);
+  console.log(req.body);
+  console.log(req.params);
+  console.log(req.data);
   res.send(true);
 });
 
