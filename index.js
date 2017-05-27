@@ -15,10 +15,11 @@ server.listen(config.socketPort);
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.text());
 
 const init = () => {
   const sns = new AWS.SNS();
