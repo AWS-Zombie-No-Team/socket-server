@@ -1,0 +1,12 @@
+{
+  "Type" : "Notification",
+  "MessageId" : "d464e098-199e-5d24-9732-b13bcd5c2c78",
+  "TopicArn" : "arn:aws:sns:eu-west-1:505939746198:messages",
+  "Subject" : "test",
+  "Message" : "{\"compoundkey\":\"Hloya-Jack\",\"msg\":\"Hi you saw zombies\",\"msg_status\":\" received\",\"receiver\":\"Hloya\",\"sender\":\"Jack\",\"source_location\":{\"lat\":50.453844,\"lon\":30.428284},\"timestamp\":124312412312}",
+  "Timestamp" : "2017-05-27T19:24:50.598Z",
+  "SignatureVersion" : "1",
+  "Signature" : "Jq6PsnE8ai6dKWXMcPEX4y3EP6K0zS8eZp2OXarVpIH/Zw4B5ljNVTvITZ1VUo6Pwvjbd8HHMTfzbjpZOF+nhKFFS5tDw5pFc9WyaaL5ef8tust2eLNS3fxcheWAAC144Cl9z/fEOLWM7+OpilX2mIG9ZJUhb1pOo4Gw/LRRWN8YNA9a/6MrLK80UOABs0F0Sd9NWmX6y63G0AmCx/LWl6FVN5BjM5WVPbvOoPoSj3L/IhCEyaUBJ1OFtf/FxUQI7hfYPAtrwu/Y7SSmj90ZeGj52foQBWDTyYpQgJP3nOVZ3wLO9LZysN32+vxuZmiwuwaGx2wD/uDN25e0yZIPeQ==",
+  "SigningCertURL" : "https://sns.eu-west-1.amazonaws.com/SimpleNotificationService-b95095beb82e8f6a046b3aafc7f4149a.pem",
+  "UnsubscribeURL" : "https://sns.eu-west-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-west-1:505939746198:messages:a0b6fee0-b050-46c6-b0c5-b38bc7d37a22"
+}
