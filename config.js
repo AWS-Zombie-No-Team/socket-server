@@ -16,7 +16,7 @@ module.exports = {
     'arn:aws:sns:eu-west-1:505939746198:messages'
   ),
   api: d(
-    'https://mpnzwe6g7c.execute-api.eu-west-1.amazonaws.com/dev',
-    'https://mpnzwe6g7c.execute-api.eu-west-1.amazonaws.com/dev'
+    'https://49t6art088.execute-api.eu-west-1.amazonaws.com/dev',
+    'https://49t6art088.execute-api.eu-west-1.amazonaws.com/dev'
   )
 }
